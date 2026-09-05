@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+C:\Users\HP\Documents\AWS Project\student-management-system\backend\.metadata\.plugins\org.eclipse.jdt.core
-3947791839.index
-1865797976.index
-475124322.index
