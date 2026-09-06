@@ -28,10 +28,10 @@ public class User {
     private Role role;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "account_status", nullable = false)
-    private AccountStatus accountStatus = AccountStatus.PENDING;
+    @Column(name = "account_status", nullable = true)
+    private AccountStatus accountStatus = AccountStatus.ACTIVE;
 
-    @Column(name = "rejection_reason")
+    @Column(name = "rejection_reason", nullable = true)
     private String rejectionReason;
 
     @CreationTimestamp
@@ -54,7 +54,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
-        this.accountStatus = accountStatus != null ? accountStatus : AccountStatus.PENDING;
+        this.accountStatus = accountStatus != null ? accountStatus : AccountStatus.ACTIVE;
         this.rejectionReason = rejectionReason;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -72,7 +72,7 @@ public class User {
     public void setPassword(String password) { this.password = password; }
     public Role getRole() { return role; }
     public void setRole(Role role) { this.role = role; }
-    public AccountStatus getAccountStatus() { return accountStatus; }
+    public AccountStatus getAccountStatus() { return accountStatus != null ? accountStatus : AccountStatus.ACTIVE; }
     public void setAccountStatus(AccountStatus accountStatus) { this.accountStatus = accountStatus; }
     public String getRejectionReason() { return rejectionReason; }
     public void setRejectionReason(String rejectionReason) { this.rejectionReason = rejectionReason; }
