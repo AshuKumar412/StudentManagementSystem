@@ -1,8 +1,8 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import ThemeToggle from '../components/common/ThemeToggle';
-import { AcademicCapIcon, ShieldCheckIcon } from '../components/common/Icons';
+import { AcademicCapIcon, ShieldCheckIcon, EyeIcon, EyeSlashIcon, CheckIcon, ChevronLeftIcon } from '../components/common/Icons';
 import toast from 'react-hot-toast';
 
 export default function AdminRegisterPage() {
@@ -140,15 +140,21 @@ export default function AdminRegisterPage() {
 
           <div className="space-y-3 pt-2">
             <div className="flex items-center gap-3 text-xs text-slate-300">
-              <div className="w-5 h-5 rounded-full bg-indigo-600/50 flex items-center justify-center text-indigo-300 font-bold shrink-0">?</div>
+              <div className="w-5 h-5 rounded-full bg-indigo-600/50 flex items-center justify-center text-indigo-300 font-bold shrink-0">
+                <CheckIcon className="w-3 h-3 text-indigo-300" />
+              </div>
               <span>End-to-end BCrypt secure credential hashing</span>
             </div>
             <div className="flex items-center gap-3 text-xs text-slate-300">
-              <div className="w-5 h-5 rounded-full bg-indigo-600/50 flex items-center justify-center text-indigo-300 font-bold shrink-0">?</div>
+              <div className="w-5 h-5 rounded-full bg-indigo-600/50 flex items-center justify-center text-indigo-300 font-bold shrink-0">
+                <CheckIcon className="w-3 h-3 text-indigo-300" />
+              </div>
               <span>Direct activation with ADMIN role authorization</span>
             </div>
             <div className="flex items-center gap-3 text-xs text-slate-300">
-              <div className="w-5 h-5 rounded-full bg-indigo-600/50 flex items-center justify-center text-indigo-300 font-bold shrink-0">?</div>
+              <div className="w-5 h-5 rounded-full bg-indigo-600/50 flex items-center justify-center text-indigo-300 font-bold shrink-0">
+                <CheckIcon className="w-3 h-3 text-indigo-300" />
+              </div>
               <span>Immediate access to real-time analytics & reports</span>
             </div>
           </div>
@@ -166,7 +172,8 @@ export default function AdminRegisterPage() {
           {/* Header */}
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/40 text-amber-700 dark:text-amber-300 text-xs font-semibold mb-3">
-              <span>??</span> Administrator Access
+              <ShieldCheckIcon className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+              <span>Administrator Access</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] tracking-tight">
               Create Admin Account
@@ -248,11 +255,15 @@ export default function AdminRegisterPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] text-sm cursor-pointer p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer p-1"
                   tabIndex="-1"
                   aria-label="Toggle password visibility"
                 >
-                  {showPassword ? '??' : '???'}
+                  {showPassword ? (
+                    <EyeSlashIcon className="w-4 h-4 text-slate-500" />
+                  ) : (
+                    <EyeIcon className="w-4 h-4 text-slate-500" />
+                  )}
                 </button>
               </div>
 
@@ -261,12 +272,12 @@ export default function AdminRegisterPage() {
                 <div className="mt-2 space-y-1 animate-fadeIn">
                   <div className="flex items-center justify-between text-[11px]">
                     <span className="text-[var(--text-muted)]">Password strength:</span>
-                    <span className={`font-semibold ${strength.text}`}>{strength.label}</span>
+                    <span className={'font-semibold ' + strength.text}>{strength.label}</span>
                   </div>
                   <div className="h-1.5 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div
-                      className={`h-full transition-all duration-300 ${strength.color}`}
-                      style={{ width: `${(strength.score / 4) * 100}%` }}
+                      className={'h-full transition-all duration-300 ' + strength.color}
+                      style={{ width: ((strength.score / 4) * 100) + '%' }}
                     ></div>
                   </div>
                 </div>
@@ -291,11 +302,15 @@ export default function AdminRegisterPage() {
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] text-sm cursor-pointer p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer p-1"
                   tabIndex="-1"
                   aria-label="Toggle confirm password visibility"
                 >
-                  {showConfirmPassword ? '??' : '???'}
+                  {showConfirmPassword ? (
+                    <EyeSlashIcon className="w-4 h-4 text-slate-500" />
+                  ) : (
+                    <EyeIcon className="w-4 h-4 text-slate-500" />
+                  )}
                 </button>
               </div>
               {confirmPassword && password !== confirmPassword && (
@@ -316,7 +331,7 @@ export default function AdminRegisterPage() {
               ) : (
                 <>
                   <span>Register Administrator</span>
-                  <span>??</span>
+                  <ShieldCheckIcon className="w-4 h-4" />
                 </>
               )}
             </button>
@@ -339,7 +354,8 @@ export default function AdminRegisterPage() {
                 to="/login"
                 className="inline-flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               >
-                <span>?</span> Back to Main Login
+                <ChevronLeftIcon className="w-3.5 h-3.5" />
+                <span>Back to Main Login</span>
               </Link>
             </div>
           </div>
@@ -348,4 +364,3 @@ export default function AdminRegisterPage() {
     </div>
   );
 }
-

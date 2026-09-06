@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { departmentsService } from '../services/departmentsService';
 import ThemeToggle from '../components/common/ThemeToggle';
-import { UserGroupIcon, BuildingOfficeIcon } from '../components/common/Icons';
+import { UserGroupIcon, BuildingOfficeIcon, ShieldCheckIcon } from '../components/common/Icons';
 import toast from 'react-hot-toast';
 
 export default function FacultyRegisterPage() {
@@ -259,13 +259,15 @@ export default function FacultyRegisterPage() {
         </form>
 
         <div className="pt-4 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--text-secondary)]">
-          <div className="flex gap-3">
-            <Link to="/register/student" className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">
-              ← Student
+          <div className="flex items-center gap-3">
+            <Link to="/register/student" className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1">
+              <UserGroupIcon className="w-3.5 h-3.5" />
+              <span>Student</span>
             </Link>
             <span className="text-slate-300 dark:text-slate-700">•</span>
-            <Link to="/register/admin" className="font-semibold text-amber-600 dark:text-amber-400 hover:underline">
-              👑 Admin
+            <Link to="/register/admin" className="font-semibold text-amber-600 dark:text-amber-400 hover:underline inline-flex items-center gap-1">
+              <ShieldCheckIcon className="w-3.5 h-3.5" />
+              <span>Admin</span>
             </Link>
           </div>
           <Link to="/login" className="font-semibold text-[var(--text-primary)] hover:underline">

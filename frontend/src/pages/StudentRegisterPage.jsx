@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { departmentsService } from '../services/departmentsService';
 import { studentsService } from '../services/studentsService';
 import ThemeToggle from '../components/common/ThemeToggle';
-import { CameraIcon, AcademicCapIcon, TrashIcon, CheckCircleIcon } from '../components/common/Icons';
+import { CameraIcon, AcademicCapIcon, TrashIcon, CheckCircleIcon, TeacherIcon, ShieldCheckIcon } from '../components/common/Icons';
 import toast from 'react-hot-toast';
 
 export default function StudentRegisterPage() {
@@ -441,13 +441,15 @@ export default function StudentRegisterPage() {
           </form>
 
           <div className="mt-6 pt-4 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--text-secondary)]">
-            <div className="flex gap-3">
-              <Link to="/register/faculty" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
-                👨‍🏫 Faculty
+            <div className="flex items-center gap-3">
+              <Link to="/register/faculty" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline inline-flex items-center gap-1">
+                <TeacherIcon className="w-3.5 h-3.5" />
+                <span>Faculty</span>
               </Link>
               <span className="text-slate-300 dark:text-slate-700">•</span>
-              <Link to="/register/admin" className="text-amber-600 dark:text-amber-400 font-semibold hover:underline">
-                👑 Admin
+              <Link to="/register/admin" className="text-amber-600 dark:text-amber-400 font-semibold hover:underline inline-flex items-center gap-1">
+                <ShieldCheckIcon className="w-3.5 h-3.5" />
+                <span>Admin</span>
               </Link>
             </div>
             <Link to="/login" className="text-[var(--text-primary)] font-semibold hover:underline">
