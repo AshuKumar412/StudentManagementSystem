@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import StudentRegisterPage from './pages/StudentRegisterPage';
 import FacultyRegisterPage from './pages/FacultyRegisterPage';
+import AdminRegisterPage from './pages/AdminRegisterPage';
 import AdminLayout from './layouts/AdminLayout';
 import TeacherLayout from './layouts/TeacherLayout';
 import StudentLayout from './layouts/StudentLayout';
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/register" element={<Navigate to="/register/student" replace />} />
           <Route path="/register/student" element={<StudentRegisterPage />} />
           <Route path="/register/faculty" element={<FacultyRegisterPage />} />
+          <Route path="/register/admin" element={<AdminRegisterPage />} />
           <Route path="/" element={<Navigate to="/login" replace />} />
 
           {/* Admin Routes */}

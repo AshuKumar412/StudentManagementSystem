@@ -3,6 +3,7 @@ import api from './api';
 export const authService = {
   login: (credentials) => api.post('/auth/login', credentials),
   register: (data) => api.post('/auth/register', data),
+  registerAdmin: (data) => api.post('/auth/register/admin', data),
   registerStudent: (data) => api.post('/auth/register/student', data),
   registerFaculty: (data) => api.post('/auth/register/faculty', data),
   getMe: () => api.get('/auth/me'),

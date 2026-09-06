@@ -258,10 +258,16 @@ export default function FacultyRegisterPage() {
           </button>
         </form>
 
-        <div className="pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--text-secondary)]">
-          <Link to="/register/student" className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">
-            ← Register as Student instead
-          </Link>
+        <div className="pt-4 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--text-secondary)]">
+          <div className="flex gap-3">
+            <Link to="/register/student" className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">
+              ← Student
+            </Link>
+            <span className="text-slate-300 dark:text-slate-700">•</span>
+            <Link to="/register/admin" className="font-semibold text-amber-600 dark:text-amber-400 hover:underline">
+              👑 Admin
+            </Link>
+          </div>
           <Link to="/login" className="font-semibold text-[var(--text-primary)] hover:underline">
             Already registered? Sign In
           </Link>

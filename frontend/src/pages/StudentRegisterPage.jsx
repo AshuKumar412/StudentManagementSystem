@@ -440,10 +440,16 @@ export default function StudentRegisterPage() {
             </button>
           </form>
 
-          <div className="mt-6 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--text-secondary)]">
-            <Link to="/register/faculty" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
-              👨‍🏫 Faculty Application →
-            </Link>
+          <div className="mt-6 pt-4 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--text-secondary)]">
+            <div className="flex gap-3">
+              <Link to="/register/faculty" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
+                👨‍🏫 Faculty
+              </Link>
+              <span className="text-slate-300 dark:text-slate-700">•</span>
+              <Link to="/register/admin" className="text-amber-600 dark:text-amber-400 font-semibold hover:underline">
+                👑 Admin
+              </Link>
+            </div>
             <Link to="/login" className="text-[var(--text-primary)] font-semibold hover:underline">
               Back to Sign In
             </Link>

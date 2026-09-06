@@ -48,6 +48,11 @@ export function AuthProvider({ children }) {
     return userData;
   };
 
+  const registerAdmin = async (data) => {
+    const res = await authService.registerAdmin(data);
+    return res.data;
+  };
+
   const registerStudent = async (data) => {
     const res = await authService.registerStudent(data);
     return res.data;
@@ -68,6 +73,7 @@ export function AuthProvider({ children }) {
       value={{
         user,
         login,
+        registerAdmin,
         registerStudent,
         registerFaculty,
         logout,

@@ -105,6 +105,25 @@ public class AuthService {
     }
 
     @Transactional
+    public String registerAdmin(AuthDto.AdminRegisterRequest request) {
+        String cleanEmail = request.getEmail().trim().toLowerCase();
+        if (userRepository.existsByEmail(cleanEmail)) {
+            throw new DuplicateResourceException("An account with this email already exists.");
+        }
+
+        User user = User.builder()
+                .name(request.getName().trim())
+                .email(cleanEmail)
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(User.Role.ADMIN)
+                .accountStatus(User.AccountStatus.ACTIVE)
+                .build();
+        userRepository.save(user);
+
+        return "Admin account created successfully. You can now sign in.";
+    }
+
+    @Transactional
     public String registerStudent(AuthDto.StudentRegisterRequest request) {
         String cleanEmail = request.getEmail().trim().toLowerCase();
         if (userRepository.existsByEmail(cleanEmail)) {

@@ -25,6 +25,13 @@ public class AuthController {
         return ResponseEntity.ok(ApiResponse.success("Login successful", response));
     }
 
+    @PostMapping({"/register/admin", "/admin/register"})
+    public ResponseEntity<ApiResponse<String>> registerAdmin(@Valid @RequestBody AuthDto.AdminRegisterRequest request) {
+        String msg = authService.registerAdmin(request);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ApiResponse.success(msg, msg));
+    }
+
     @PostMapping("/register/student")
     public ResponseEntity<ApiResponse<String>> registerStudent(@Valid @RequestBody AuthDto.StudentRegisterRequest request) {
         String msg = authService.registerStudent(request);
