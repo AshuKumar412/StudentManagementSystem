@@ -32,3 +32,6 @@ logs/
 
 # Spring Boot
 HELP.md
+
+uploads/
+StudentManagementSystemBackend/uploads/
